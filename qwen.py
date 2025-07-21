@@ -18,7 +18,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 prompt = "Fui ao supermercado de ônibus."
 messages = [
-            {"role": "system", "content": "modifique o seguinte texto para português de portugal"},
+            {"role": "system", "content": "modifique o seguinte texto para português do Brasil"},
             {"role": "user", "content": prompt}
            ]
 text = tokenizer.apply_chat_template(

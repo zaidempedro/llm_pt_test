@@ -12,7 +12,7 @@ def traduzir_ptpt_para_ptbr(texto):
             resposta = openai.ChatCompletion.create(
                 model="gpt-4",  # Alterado para usar o modelo gpt-4
                 messages=[
-                    {"role": "system", "content": "Você é um tradutor que converte textos do português de Portugal para o português do Brasil."},
+                    {"role": "system", "content": "modifique o seguinte texto para português do Brasil"},
                     {"role": "user", "content": texto}
                 ],
                 temperature=0.3,  # Mantendo consistência
