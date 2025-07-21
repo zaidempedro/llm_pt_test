@@ -72,10 +72,16 @@ def processar_arquivos(pasta_entrada="textos_originais", pasta_saida="textos_tra
     print(f"Iniciando o processamento de {len(arquivos)} arquivos.\n")
 
     for i, nome_arquivo in enumerate(arquivos):
-        caminho_entrada = os.path.join(pasta_entrada, nome_arquivo)
         nome_base, _ = os.path.splitext(nome_arquivo)
-        caminho_saida_pt = os.path.join(pasta_saida, f"{nome_base}_pt.txt")
         caminho_saida_br = os.path.join(pasta_saida, f"{nome_base}_br.txt")
+
+        # Pula se já existe tradução pronta
+        if os.path.exists(caminho_saida_br):
+            print(f"Pulo {nome_arquivo} porque já existe tradução.")
+            continue
+
+        caminho_entrada = os.path.join(pasta_entrada, nome_arquivo)
+        caminho_saida_pt = os.path.join(pasta_saida, f"{nome_base}_pt.txt")
 
         try:
             with open(caminho_entrada, "r", encoding="utf-8") as f:
